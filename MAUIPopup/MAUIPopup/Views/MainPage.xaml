@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MAUIPopup"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:popup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
+             x:Class="MAUIPopup.MainPage">
+    
+    <ContentPage.Behaviors>
+        <local:Behavior/>
+    </ContentPage.Behaviors>   
+
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Button x:Name="button" Text="Go to Next Page"/>
+            <popup:SfPopup x:Name="popup" ShowHeader="False" AutoSizeMode="Both" 
+                           AnimationMode="Zoom"
+                           StaysOpen="True"
+                           AnimationEasing="SinInOut">
+                
+                <popup:SfPopup.PopupStyle>
+                    <popup:PopupStyle CornerRadius="15"/>
+                </popup:SfPopup.PopupStyle>
+                
+                <popup:SfPopup.ContentTemplate>
+                    <DataTemplate>
+                        <core:SfBusyIndicator
+                                AnimationType="DoubleCircle"
+                                DurationFactor="2"
+                                TitlePlacement="None"
+                                WidthRequest="50"
+                                HeightRequest="50"
+                                IsRunning="True"/>
+                    </DataTemplate>
+                </popup:SfPopup.ContentTemplate>
+            </popup:SfPopup>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
